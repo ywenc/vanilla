@@ -1,0 +1,113 @@
+header {
+	padding: 25px 30px 10px 30px;
+	display: flex;
+	flex-direction: column;
+	border-bottom: 1px solid #DCDCDC;
+	position: fixed;
+	background-color: white;
+	width: 100%;
+	z-index: 1;
+}
+
+header div {
+	display: flex;
+	justify-content:space-between;
+}
+
+h1 {
+	font-weight: 400;
+	font-size: 16px;
+}
+
+.links a{
+	margin: 0 15px;
+	color: blue;
+}
+
+article h2 {
+	font-weight: 400;
+}
+
+article button {
+	border: 3px solid #fff;
+	border-radius: 100%;
+	width: 42px;
+	height: 42px;
+	text-align: center;
+	background-color:	#fdf0c9;
+	line-height: 1;
+	color: #39221D;
+	font-size: 12px;
+	font-weight: 700;
+}
+
+.icecream {
+	width: 100%;
+	display: block;
+	position: relative;
+}
+
+.icecream button {
+	width: 40px;
+	height: 40px;
+	float: right;
+	transform: scale(2, 2);
+}
+
+.icecream h2 {
+	float: left;
+	text-align: baseline;
+	position: absolute;
+	bottom: 0;
+}
+
+article button:hover {
+	border: 3px solid #d88a8a;
+}
+
+article {
+	padding: 120px 30px 0 30px;
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+}
+
+@media (min-width: 640px) {
+	article {
+		flex-direction: row;
+	}
+}
+
+.column {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+}
+
+article div section{
+	display: flex;
+	flex-direction: column;
+	margin: 0 25px 25px 0;
+}
+
+article div section div{
+	display: block;
+	margin-bottom: 25px;
+}
+
+article div section div button{
+	margin-right: 20px;
+	float: left;
+}
+
+article div section div span {
+	vertical-align: middle;
+	float: left;
+	width: calc(50vw - 102px);
+}
+
+.group:after {
+	content: '';
+	clear: both;
+	display: block;
+}
