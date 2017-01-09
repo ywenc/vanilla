@@ -146,8 +146,8 @@
         $v.ajax({
           url: "http://api.openweathermap.org/data/2.5/weather?q=NY,NY&appid=31934f53a235a3146e4917fc736cb981",
           success(data) {
-            debugger
-            const farenheit = Math.round(data.main.temp * (9/5) - 456.67);
+            const response = JSON.parse(data);
+            const farenheit = Math.round((response.main.temp - 273) * (9/5) + 32);
             temperature = `${farenheit}°F`;
             $v('#event').html(temperature)
           },
