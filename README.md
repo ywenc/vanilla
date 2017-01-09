@@ -55,4 +55,4 @@ Insert content to the end of each element in the set of matched elements.
 
 ## Demo
 
-[Live](#) [Source](#)
+[Live](yywenc.com/vanilla-demo.html) [Source](github.com/ywenc/vanilla/blob/master/vanilla-demo.html)
