@@ -55,4 +55,4 @@ Insert content to the end of each element in the set of matched elements.
 
 ## Demo
 
-[Live](https://ywenc.github.io/vanilla.html) [Source](https://github.com/ywenc/vanilla/blob/master/index.html)
+[Live](https://ywenc.github.io/vanilla) [Source](https://github.com/ywenc/vanilla/blob/master/index.html)
