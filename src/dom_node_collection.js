@@ -19,7 +19,7 @@ class DOMNodeCollection {
       childNodes = childNodes.concat(Array.from(childNodeList));
     });
 
-    return new DomNodeCollection(childNodes);
+    return new DOMNodeCollection(childNodes);
   }
 
   each(cb) {
@@ -38,7 +38,7 @@ class DOMNodeCollection {
       selected = selected.concat(Array.from(nodeList));
     });
 
-    return new DomNodeCollection(selected);
+    return new DOMNodeCollection(selected);
   }
 
   html(html) {
@@ -55,15 +55,15 @@ class DOMNodeCollection {
     if (children instanceof HTMLElement) children = $v(children);
 
     if (typeof children === "string") {
-      this.domElements.forEach(domNode => {
-        domNode.innerHTML += children;
-      });
+      this.nodes.forEach(domNode =>
+        domNode.innerHTML += children
+      );
       return;
     }
 
-    children.domElements.forEach(domNode => {
+    children.nodes.forEach(domNode => {
       for (let i = 0; i < this.domElements.length; i++) {
-        this.domElements[i].appendChild(domNode.cloneNode(true));
+        this.nodes[i].appendChild(domNode.cloneNode(true));
       }
     });
   }
@@ -102,7 +102,7 @@ class DOMNodeCollection {
   parent() {
     const parents = [];
     this.each(node => parents.push(node.parentNode));
-    return new DomNodeCollection(parents);
+    return new DOMNodeCollection(parents);
   }
 
   addClass(className) {

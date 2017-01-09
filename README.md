@@ -55,9 +55,4 @@ Insert content to the end of each element in the set of matched elements.
 
 ## Demo
 
-[Live](#)
-[Source](#)
-
-Check out vanilla live.
-
-![demo](/#)
+[Live](#) [Source](#)

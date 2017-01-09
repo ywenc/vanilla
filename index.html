@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>vanilla Demo</title>
+    <title>vanilla</title>
     <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
-
+    <script type="text/javascript" src="dist/vanilla.js" charset="utf-8"></script>
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="assets/reset.css">
     <link rel="stylesheet" href="assets/demo.css">
@@ -12,42 +12,160 @@
   </head>
   <body>
     <header class="group">
-      <div class="head group">
-        <h1 class='main-title' title="vanilla">vanilla</h1>
-        <div class="links group">
-          <a title="Github" class="github-link" href="https://github.com/ywenc/vanilla">Github</a>
-          <a title="Source" class="github-link" href="https://github.com/ywenc/vanilla/blob/master/index.html">Source</a>
+      <section class="group">
+        <div class="head group">
+          <h1 class='main-title' title="vanilla">vanilla</h1>
+          <ul class="links group">
+            <a title="Github" class="github-link" href="https://github.com/ywenc/vanilla">Github</a>
+            <a title="Source" class="github-link" href="https://github.com/ywenc/vanilla/blob/master/index.html">Source</a>
+          </ul>
         </div>
-      </div>
+        <span>vanilla is a lightweight DOM manipulation library. See it live in the demo below.</span>
+      </section>
 
-      <span>vanilla is a lightweight DOM manipulation library. See it live in the demo below.</span>
+      <button id="event" class="event">
+        <i class="em em-icecream"></i>
+      </button>
     </header>
 
     <article>
       <div class="column">
-        <section class="event-handling">
-          <div class="icecream">
-            <h2 title="Event Handling">Event Handling</h2>
-            <button id="event" class="event">
-              <i class="em em-icecream"></i>
+        <section class="ajax-requests">
+          <content>
+            <h2 title="AJAX Requests">AJAX Requests</h2>
+            <p>
+              <button class="weather" id='weather'>AJAX</button>
+              <span>vanilla can also be made to make asynchronous requests to web APIs to fetch external information. Click to see today's temperature.</span>
+            </p>
+          </content>
+        </section>
+
+        <section class="manipulation">
+          <h2 title="DOM Manipulation">DOM Manipulation</h2>
+
+          <p class="group">
+            <button class="button-1" id="button-1">html</button>
+            <span>Click here to change the inner html of an HTML element. Now our cone is replaced by something else.</span>
+          </p>
+
+          <p class="group">
+            <button class="button-2" id="button-2">append</button>
+            <span>Click here to add to the inner html of an HTML element. Now we have more ice cream cones. This can work with strings or HTML elements.</span>
+          </p>
+
+          <p class="group">
+            <button class="button-3" id="button-3">remove</button>
+            <span>Click to remove everything from our header button.</span>
+          </p>
+
+          <p class="group">
+            <button class="button-4" id="button-4">addClass</button>
+            <span>Click to add a class to our header button. This lets us dynamically change our styling.</span>
+          </p>
+
+          <p class="group">
+            <button class="button-5" id="button-5">removeClass
             </button>
-          </div>
-
-          <div class="group">
-            <button class="" id="on">+</button>
-            <span>Click to add an event handler to our cone. Now something should happen when you click on our cone</span>
-          </div>
-
-          <div class="group">
-            <button class="inline" id="off">-</button>
-            <span>Click here to remove an event handler. Now nothing happens when you click on our cone</span>
-          </div>
+            <span>Click to remove the class we added to the header button.</span>
+          </p>
         </section>
       </div>
 
+      <div class="column">
+        <section class="event-handling">
+          <h2 title="Event Handling">Event Handling</h2>
+          <p class="group">
+            <button class="" id="on">+</button>
+            <span>Click to add an event handler to our cone. Click on our cone again to see something happen.</span>
+          </p>
+
+          <p class="group">
+            <button class="inline" id="off">-</button>
+            <span>Click to remove an event handler. Now click on our cone again.</span>
+          </p>
+        </section>
+        <section class="traversal">
+          <h2 title="Traversal">Traversal</h2>
+          <p>You can use vanilla not only on the selected element, but also its children, parents, or descendents.</p>
+
+          <p>
+            <button id='child-demo'>child</button>
+            <span>Click to see our cone (child of our header button) get bigger while our button stays the same size.</span>
+          </p>
+
+          <p>
+            <button id='parent-demo'>parent</button>
+            <span>Click to see our header change class.</span>
+          </p>
+
+          <p>
+            <button id='find-demo'>find</button>
+            <span>Click to see vanilla find all the buttons on the page and remove them. (Refresh to see this demo again.)</span>
+          </p>
+        </section>
+      </div>
     </article>
 
     <script type="text/javascript">
+      $v("#on").on("click", () => {
+        $v("#event").on("click", () => {
+          alert('event added');
+        })
+      })
+
+      $v("#off").on("click", () => {
+        $v("#event").off("click")
+      })
+
+      $v('#button-1').on("click", () => {
+        $v('#event').html(`<i class="em em-custard"></i>`)
+      })
+
+      $v('#button-2').on("click", () => {
+        $v('#event').append(`<i class="em em-icecream"></i>`)
+      })
+
+      $v('#button-3').on("click", () => {
+        $v('#event').empty()
+      })
+
+      $v('#button-4').on("click", () => {
+        $v('#event').addClass('red')
+        $v('#button-4').html("Class added!")
+        $v('#button-5').html("removeClass")
+      })
+
+      $v('#button-5').on("click", () => {
+        $v('#event').removeClass('red')
+        $v('#button-5').html("Class removed!")
+        $v('#button-4').html("addClass")
+      })
+
+      $v('#weather').on("click", () => {
+        let temperature
+        $v.ajax({
+          url: "http://api.openweathermap.org/data/2.5/weather?q=NY,NY&appid=31934f53a235a3146e4917fc736cb981",
+          success(data) {
+            debugger
+            const farenheit = Math.round(data.main.temp * (9/5) - 456.67);
+            temperature = `${farenheit}°F`;
+            $v('#event').html(temperature)
+          },
+          error: () => {alert("sorry, please try again later.")}
+        })
+      });
+
+      $v('#child-demo').on("click", () => {
+        $v('#event').children().addClass("child")
+      })
+
+      $v('#parent-demo').on("click", () => {
+        $v('#event').parent().addClass("parent")
+      })
+
+      $v('#find-demo').on("click", () => {
+        $v('body').find('button').remove();
+      })
     </script>
   </body>
 </html>

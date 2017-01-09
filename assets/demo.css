@@ -1,7 +1,6 @@
 header {
-	padding: 25px 30px 10px 30px;
+	padding: 20px 20px 30px 20px;
 	display: flex;
-	flex-direction: column;
 	border-bottom: 1px solid #DCDCDC;
 	position: fixed;
 	background-color: white;
@@ -9,30 +8,48 @@ header {
 	z-index: 1;
 }
 
-header div {
-	display: flex;
+header section {
 	justify-content:space-between;
+	display: block;
+	width: 85%;
+	margin-right: 15px;
+	float: left;
+}
+
+.links {
+	float: left;
 }
 
 h1 {
 	font-weight: 400;
 	font-size: 16px;
+	float: left;
 }
 
 .links a{
-	margin: 0 15px;
+	margin: 0 0 0 15px;
 	color: blue;
+}
+
+header button {
+	width: 50px;
+	height: 50px;
+	float: right;
+	transform: scale(2, 2);
+	text-align: center;
+	margin-top: 8px;
+	margin-left: 15px;
 }
 
 article h2 {
 	font-weight: 400;
 }
 
-article button {
+button {
 	border: 3px solid #fff;
 	border-radius: 100%;
-	width: 42px;
-	height: 42px;
+	width: 60px;
+	height: 60px;
 	text-align: center;
 	background-color:	#fdf0c9;
 	line-height: 1;
@@ -47,13 +64,6 @@ article button {
 	position: relative;
 }
 
-.icecream button {
-	width: 40px;
-	height: 40px;
-	float: right;
-	transform: scale(2, 2);
-}
-
 .icecream h2 {
 	float: left;
 	text-align: baseline;
@@ -61,21 +71,15 @@ article button {
 	bottom: 0;
 }
 
-article button:hover {
+button:hover {
 	border: 3px solid #d88a8a;
 }
 
 article {
-	padding: 120px 30px 0 30px;
+	padding: 130px 0 0 20px;
 	display: flex;
 	justify-content: space-between;
 	flex-direction: column;
-}
-
-@media (min-width: 640px) {
-	article {
-		flex-direction: row;
-	}
 }
 
 .column {
@@ -87,7 +91,7 @@ article {
 article div section{
 	display: flex;
 	flex-direction: column;
-	margin: 0 25px 25px 0;
+	margin: 0 20px 20px 0;
 }
 
 article div section div{
@@ -95,19 +99,57 @@ article div section div{
 	margin-bottom: 25px;
 }
 
-article div section div button{
+article div section p button{
 	margin-right: 20px;
 	float: left;
 }
 
-article div section div span {
+article div section p span {
 	vertical-align: middle;
 	float: left;
-	width: calc(50vw - 102px);
+	width: calc(100vw - 172px);
+}
+
+@media (min-width: 640px) {
+	article {
+		flex-direction: row;
+	}
+
+	article div section p {
+		width: calc(50vw - 40px);
+	}
+
+	article div section p span{
+		width: calc(50vw - 125px);
+		margin-right: 0;
+		float: left;
+	}
+
+	.column {
+		width: 50%;
+		margin-right: 25px;
+	}
 }
 
 .group:after {
 	content: '';
 	clear: both;
 	display: block;
+}
+
+
+.red {
+	background-color: red;
+}
+
+.child {
+	transform: scale(2.5, 2.5);
+}
+
+.parent {
+	background-color: pink;
+}
+
+p {
+	margin-top: 10px;
 }
