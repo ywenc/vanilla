@@ -1,6 +1,6 @@
 # vanilla
 
-test vanilla is a lightweight JavaScript library that works across browsers for processing AJAX requests, event handling, and DOM traversal and manipulation. vanilla works by wrapping JavaScript functions for accessing the Document Object Model into more intuitive syntax. Now your project can be anything but vanilla!
+vanilla is a lightweight JavaScript library that works across browsers for processing AJAX requests, event handling, and DOM traversal and manipulation. vanilla works by wrapping JavaScript functions for accessing the Document Object Model into more intuitive syntax. Now your project can be anything but vanilla!
 
 ## Getting Started
 
